@@ -1,0 +1,23 @@
+{
+  "name": "password-ai-mcp",
+  "description": "MEOK AI Labs \u2014 Password tools for AI agents and LLMs",
+  "vendor": "MEOK AI Labs",
+  "homepage": "https://meok.ai",
+  "repository": "https://github.com/CSOAI-ORG/password-ai-mcp",
+  "runtime": "python",
+  "entrypoint": "server.py",
+  "tools": [
+    "generate_password",
+    "check_strength",
+    "hash_password",
+    "estimate_crack_time"
+  ],
+  "categories": [
+    "Security",
+    "Utilities"
+  ],
+  "pricing": {
+    "free": "50 calls/day",
+    "pro": "$9/mo"
+  }
+}

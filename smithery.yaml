@@ -1,0 +1,10 @@
+name: password-ai-mcp
+description: "MEOK AI Labs — Password tools for AI agents and LLMs"
+vendor: MEOK AI Labs
+homepage: https://meok.ai
+repository: https://github.com/CSOAI-ORG/password-ai-mcp
+license: MIT
+categories: [Security, Utilities]
+tags: [password-generation, password-strength, password-manager, credential-security]
+runtime: python
+entrypoint: server.py
