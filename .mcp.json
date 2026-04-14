@@ -1,23 +1,92 @@
 {
   "name": "password-ai-mcp",
-  "description": "MEOK AI Labs \u2014 Password tools for AI agents and LLMs",
-  "vendor": "MEOK AI Labs",
-  "homepage": "https://meok.ai",
-  "repository": "https://github.com/CSOAI-ORG/password-ai-mcp",
-  "runtime": "python",
-  "entrypoint": "server.py",
+  "description": "MCP server for password security tools.",
+  "version": "1.0.0",
   "tools": [
-    "generate_password",
-    "check_strength",
-    "hash_password",
-    "estimate_crack_time"
-  ],
-  "categories": [
-    "Security",
-    "Utilities"
-  ],
-  "pricing": {
-    "free": "50 calls/day",
-    "pro": "$9/mo"
-  }
+    {
+      "name": "generate_password",
+      "description": "Generate secure random passwords.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "length": {
+            "type": "integer"
+          },
+          "uppercase": {
+            "type": "boolean"
+          },
+          "lowercase": {
+            "type": "boolean"
+          },
+          "digits": {
+            "type": "boolean"
+          },
+          "symbols": {
+            "type": "boolean"
+          },
+          "exclude_ambiguous": {
+            "type": "boolean"
+          },
+          "count": {
+            "type": "integer"
+          }
+        },
+        "required": []
+      }
+    },
+    {
+      "name": "check_strength",
+      "description": "Analyze password strength with detailed scoring.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "password": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "password"
+        ]
+      }
+    },
+    {
+      "name": "hash_password",
+      "description": "Hash a password. Algorithms: md5, sha1, sha256, sha512, sha3_256.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "password": {
+            "type": "string"
+          },
+          "algorithm": {
+            "type": "string"
+          },
+          "salt": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "password"
+        ]
+      }
+    },
+    {
+      "name": "estimate_crack_time",
+      "description": "Estimate how long to brute-force a password at given guess rate.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "password": {
+            "type": "string"
+          },
+          "guesses_per_second": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "password"
+        ]
+      }
+    }
+  ]
 }

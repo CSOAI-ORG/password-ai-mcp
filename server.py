@@ -1,4 +1,9 @@
 """Password AI MCP Server — Security and password tools."""
+
+import sys, os
+sys.path.insert(0, os.path.expanduser('~/clawd/meok-labs-engine/shared'))
+from auth_middleware import check_access
+
 import hashlib
 import math
 import re
@@ -22,8 +27,12 @@ def _rate_check(tool: str) -> bool:
     return True
 
 @mcp.tool()
-def generate_password(length: int = 16, uppercase: bool = True, lowercase: bool = True, digits: bool = True, symbols: bool = True, exclude_ambiguous: bool = False, count: int = 1) -> dict[str, Any]:
+def generate_password(length: int = 16, uppercase: bool = True, lowercase: bool = True, digits: bool = True, symbols: bool = True, exclude_ambiguous: bool = False, count: int = 1, api_key: str = "") -> dict[str, Any]:
     """Generate secure random passwords."""
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     if not _rate_check("generate_password"):
         return {"error": "Rate limit exceeded (50/day)"}
     if length < 4 or length > 128:
@@ -44,8 +53,12 @@ def generate_password(length: int = 16, uppercase: bool = True, lowercase: bool 
     return {"passwords": passwords, "entropy_bits": round(entropy, 1), "charset_size": len(charset), "length": length}
 
 @mcp.tool()
-def check_strength(password: str) -> dict[str, Any]:
+def check_strength(password: str, api_key: str = "") -> dict[str, Any]:
     """Analyze password strength with detailed scoring."""
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     if not _rate_check("check_strength"):
         return {"error": "Rate limit exceeded (50/day)"}
     score = 0
@@ -86,8 +99,12 @@ def check_strength(password: str) -> dict[str, Any]:
     }
 
 @mcp.tool()
-def hash_password(password: str, algorithm: str = "sha256", salt: str = "") -> dict[str, Any]:
+def hash_password(password: str, algorithm: str = "sha256", salt: str = "", api_key: str = "") -> dict[str, Any]:
     """Hash a password. Algorithms: md5, sha1, sha256, sha512, sha3_256."""
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     if not _rate_check("hash_password"):
         return {"error": "Rate limit exceeded (50/day)"}
     algos = {"md5": hashlib.md5, "sha1": hashlib.sha1, "sha256": hashlib.sha256, "sha512": hashlib.sha512, "sha3_256": hashlib.sha3_256}
@@ -100,8 +117,12 @@ def hash_password(password: str, algorithm: str = "sha256", salt: str = "") -> d
     return {"hash": h, "algorithm": algorithm, "salt": salt, "hash_length": len(h)}
 
 @mcp.tool()
-def estimate_crack_time(password: str, guesses_per_second: float = 1e10) -> dict[str, Any]:
+def estimate_crack_time(password: str, guesses_per_second: float = 1e10, api_key: str = "") -> dict[str, Any]:
     """Estimate how long to brute-force a password at given guess rate."""
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     if not _rate_check("estimate_crack_time"):
         return {"error": "Rate limit exceeded (50/day)"}
     has_upper = bool(re.search(r'[A-Z]', password))

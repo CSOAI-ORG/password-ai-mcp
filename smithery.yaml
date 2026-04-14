@@ -1,10 +1,55 @@
 name: password-ai-mcp
-description: "MEOK AI Labs — Password tools for AI agents and LLMs"
-vendor: MEOK AI Labs
-homepage: https://meok.ai
-repository: https://github.com/CSOAI-ORG/password-ai-mcp
-license: MIT
-categories: [Security, Utilities]
-tags: [password-generation, password-strength, password-manager, credential-security]
-runtime: python
-entrypoint: server.py
+description: MCP server for password security tools.
+version: 1.0.0
+tools:
+- name: generate_password
+  description: Generate secure random passwords.
+  parameters:
+  - name: length
+    type: integer
+    required: false
+  - name: uppercase
+    type: boolean
+    required: false
+  - name: lowercase
+    type: boolean
+    required: false
+  - name: digits
+    type: boolean
+    required: false
+  - name: symbols
+    type: boolean
+    required: false
+  - name: exclude_ambiguous
+    type: boolean
+    required: false
+  - name: count
+    type: integer
+    required: false
+- name: check_strength
+  description: Analyze password strength with detailed scoring.
+  parameters:
+  - name: password
+    type: string
+    required: true
+- name: hash_password
+  description: 'Hash a password. Algorithms: md5, sha1, sha256, sha512, sha3_256.'
+  parameters:
+  - name: password
+    type: string
+    required: true
+  - name: algorithm
+    type: string
+    required: false
+  - name: salt
+    type: string
+    required: false
+- name: estimate_crack_time
+  description: Estimate how long to brute-force a password at given guess rate.
+  parameters:
+  - name: password
+    type: string
+    required: true
+  - name: guesses_per_second
+    type: number
+    required: false
