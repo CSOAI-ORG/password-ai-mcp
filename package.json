@@ -1,0 +1,18 @@
+{
+  "name": "password-ai-mcp",
+  "version": "1.0.0",
+  "description": "MEOK AI Labs — password MCP Server",
+  "main": "server.py",
+  "mcp": {
+    "name": "password",
+    "vendor": "MEOK AI Labs",
+    "homepage": "https://meok.ai",
+    "repository": "https://github.com/CSOAI-ORG/password-ai-mcp",
+    "runtime": "python",
+    "tags": ["mcp", "mcp-server", "meok-ai-labs", "ai-tools"]
+  },
+  "keywords": ["mcp", "mcp-server", "meok-ai-labs"],
+  "author": "MEOK AI Labs <nicholas@meok.ai>",
+  "license": "MIT",
+  "repository": {"type": "git", "url": "https://github.com/CSOAI-ORG/password-ai-mcp"}
+}
