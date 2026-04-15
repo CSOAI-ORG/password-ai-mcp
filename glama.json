@@ -1,0 +1,10 @@
+{
+  "name": "password-ai-mcp",
+  "description": "MEOK AI Labs \u2014 password-ai-mcp",
+  "vendor": "MEOK AI Labs",
+  "homepage": "https://meok.ai",
+  "repository": "https://github.com/CSOAI-ORG/password-ai-mcp",
+  "license": "MIT",
+  "runtime": "python",
+  "entryPoint": "mcp-wrapper.py"
+}
