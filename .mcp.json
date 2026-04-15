@@ -1,6 +1,6 @@
 {
   "name": "password-ai-mcp",
-  "description": "> **By [MEOK AI Labs](https://meok.ai)** \u2014 MEOK AI Labs MCP Server",
+  "description": "Password Ai MCP server. Tools: generate password, check strength, hash password. Built by MEOK AI Labs.",
   "version": "1.0.0",
   "tools": [
     {
