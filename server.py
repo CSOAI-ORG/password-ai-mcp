@@ -13,6 +13,19 @@ import time
 from typing import Any
 from mcp.server.fastmcp import FastMCP
 
+import json
+from datetime import datetime, timezone
+from collections import defaultdict
+
+FREE_DAILY_LIMIT = 15
+_usage = defaultdict(list)
+def _rl(c="anon"):
+    now = datetime.now(timezone.utc)
+    _usage[c] = [t for t in _usage[c] if (now-t).total_seconds() < 86400]
+    if len(_usage[c]) >= FREE_DAILY_LIMIT: return json.dumps({"error": f"Limit {FREE_DAILY_LIMIT}/day"})
+    _usage[c].append(now); return None
+
+
 mcp = FastMCP("password-ai", instructions="MEOK AI Labs MCP Server")
 _calls: dict[str, list[float]] = {}
 DAILY_LIMIT = 50
@@ -32,6 +45,7 @@ def generate_password(length: int = 16, uppercase: bool = True, lowercase: bool 
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+    if err := _rl(): return err
 
     if not _rate_check("generate_password"):
         return {"error": "Rate limit exceeded (50/day)"}
@@ -58,6 +72,7 @@ def check_strength(password: str, api_key: str = "") -> dict[str, Any]:
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+    if err := _rl(): return err
 
     if not _rate_check("check_strength"):
         return {"error": "Rate limit exceeded (50/day)"}
@@ -104,6 +119,7 @@ def hash_password(password: str, algorithm: str = "sha256", salt: str = "", api_
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+    if err := _rl(): return err
 
     if not _rate_check("hash_password"):
         return {"error": "Rate limit exceeded (50/day)"}
@@ -122,6 +138,7 @@ def estimate_crack_time(password: str, guesses_per_second: float = 1e10, api_key
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+    if err := _rl(): return err
 
     if not _rate_check("estimate_crack_time"):
         return {"error": "Rate limit exceeded (50/day)"}
