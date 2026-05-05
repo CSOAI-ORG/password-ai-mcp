@@ -1,58 +1,38 @@
-# Password AI
+<div align="center">
 
-> By [MEOK AI Labs](https://meok.ai) — Password generation, strength analysis, hashing, and crack time estimation
+[![GitHub stars](https://img.shields.io/github/stars/CSOAI-ORG/password-ai-mcp)](https://github.com/CSOAI-ORG/password-ai-mcp/stargazers)
+
+# upasswordU aiU mcp
+
+****
+
+[![npm version](https://img.shields.io/npm/v/@meok-ai/password-ai-mcp)](https://www.npmjs.com/package/@meok-ai/password-ai-mcp)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![MEOK AI Labs](https://img.shields.io/badge/MEOK_AI_Labs-255+_servers-purple)](https://meok.ai)
+
+[Installation](#installation) · [Docs](https://csoai.org) · [Report Bug](https://github.com/CSOAI-ORG/password-ai-mcp/issues)
+
+</div>
+
+---
 
 ## Installation
 
 ```bash
 pip install password-ai-mcp
+# or
+npm install -g @meok-ai/password-ai-mcp
 ```
 
-## Usage
+## Quick Start
 
-```bash
-python server.py
-```
+See the project repository for full documentation and examples.
 
-## Tools
+## Enterprise Support
 
-### `generate_password`
-Generate secure random passwords with customizable character sets.
-
-**Parameters:**
-- `length` (int): Password length 4-128 (default: 16)
-- `uppercase` (bool): Include uppercase (default: True)
-- `lowercase` (bool): Include lowercase (default: True)
-- `digits` (bool): Include digits (default: True)
-- `symbols` (bool): Include symbols (default: True)
-- `exclude_ambiguous` (bool): Exclude ambiguous chars like 0/O/1/l (default: False)
-- `count` (int): Number of passwords 1-20 (default: 1)
-
-### `check_strength`
-Analyze password strength with detailed scoring, entropy calculation, and feedback.
-
-**Parameters:**
-- `password` (str): Password to analyze
-
-### `hash_password`
-Hash a password. Algorithms: md5, sha1, sha256, sha512, sha3_256.
-
-**Parameters:**
-- `password` (str): Password to hash
-- `algorithm` (str): Hash algorithm (default: "sha256")
-- `salt` (str): Salt value (auto-generated if empty)
-
-### `estimate_crack_time`
-Estimate how long to brute-force a password at a given guess rate.
-
-**Parameters:**
-- `password` (str): Password to evaluate
-- `guesses_per_second` (float): Attacker's guess rate (default: 10 billion)
-
-## Authentication
-
-Free tier: 15 calls/day. Upgrade at [meok.ai/pricing](https://meok.ai/pricing) for unlimited access.
+- 📧 nicholas@csoai.org
+- 🌐 [CSOAI.org](https://csoai.org)
 
 ## License
 
-MIT — MEOK AI Labs
+MIT © [CSOAI](https://csoai.org)
