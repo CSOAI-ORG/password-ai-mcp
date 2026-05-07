@@ -56,6 +56,17 @@ def generate_password(length: int = 16, uppercase: bool = True, lowercase: bool 
     When NOT to use:
         Not suitable for real-time production decision-making without
         human review of results.
+
+    Args:
+        length (int): The length to analyze or process.
+        uppercase (bool): The uppercase to analyze or process.
+        lowercase (bool): The lowercase to analyze or process.
+        digits (bool): The digits to analyze or process.
+        symbols (bool): The symbols to analyze or process.
+        exclude_ambiguous (bool): The exclude ambiguous to analyze or process.
+        count (int): The count to analyze or process.
+        api_key (str): The api key to analyze or process.
+
     Behavioral Transparency:
         - Side Effects: This tool is read-only and produces no side effects. It does not modify
           any external state, databases, or files. All output is computed in-memory and returned
@@ -113,6 +124,11 @@ def check_strength(password: str, api_key: str = "") -> dict[str, Any]:
     When NOT to use:
         Not suitable for real-time production decision-making without
         human review of results.
+
+    Args:
+        password (str): The password to analyze or process.
+        api_key (str): The api key to analyze or process.
+
     Behavioral Transparency:
         - Side Effects: This tool is read-only and produces no side effects. It does not modify
           any external state, databases, or files. All output is computed in-memory and returned
@@ -190,6 +206,13 @@ def hash_password(password: str, algorithm: str = "sha256", salt: str = "", api_
     When NOT to use:
         Not suitable for real-time production decision-making without
         human review of results.
+
+    Args:
+        password (str): The password to analyze or process.
+        algorithm (str): The algorithm to analyze or process.
+        salt (str): The salt to analyze or process.
+        api_key (str): The api key to analyze or process.
+
     Behavioral Transparency:
         - Side Effects: This tool is read-only and produces no side effects. It does not modify
           any external state, databases, or files. All output is computed in-memory and returned
@@ -239,6 +262,12 @@ def estimate_crack_time(password: str, guesses_per_second: float = 1e10, api_key
     When NOT to use:
         Not suitable for real-time production decision-making without
         human review of results.
+
+    Args:
+        password (str): The password to analyze or process.
+        guesses_per_second (float): The guesses per second to analyze or process.
+        api_key (str): The api key to analyze or process.
+
     Behavioral Transparency:
         - Side Effects: This tool is read-only and produces no side effects. It does not modify
           any external state, databases, or files. All output is computed in-memory and returned
