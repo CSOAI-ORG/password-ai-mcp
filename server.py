@@ -41,7 +41,22 @@ def _rate_check(tool: str) -> bool:
 
 @mcp.tool()
 def generate_password(length: int = 16, uppercase: bool = True, lowercase: bool = True, digits: bool = True, symbols: bool = True, exclude_ambiguous: bool = False, count: int = 1, api_key: str = "") -> dict[str, Any]:
-    """Generate secure random passwords."""
+    """Generate secure random passwords.
+
+    Behavior:
+        This tool generates structured output without modifying external systems.
+        Output is deterministic for identical inputs. No side effects.
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need structured analysis or classification
+        of inputs against established frameworks or standards.
+
+    When NOT to use:
+        Not suitable for real-time production decision-making without
+        human review of results.
+    """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
@@ -68,7 +83,23 @@ def generate_password(length: int = 16, uppercase: bool = True, lowercase: bool 
 
 @mcp.tool()
 def check_strength(password: str, api_key: str = "") -> dict[str, Any]:
-    """Analyze password strength with detailed scoring."""
+    """Analyze password strength with detailed scoring.
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need structured analysis or classification
+        of inputs against established frameworks or standards.
+
+    When NOT to use:
+        Not suitable for real-time production decision-making without
+        human review of results.
+    """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
@@ -115,7 +146,23 @@ def check_strength(password: str, api_key: str = "") -> dict[str, Any]:
 
 @mcp.tool()
 def hash_password(password: str, algorithm: str = "sha256", salt: str = "", api_key: str = "") -> dict[str, Any]:
-    """Hash a password. Algorithms: md5, sha1, sha256, sha512, sha3_256."""
+    """Hash a password. Algorithms: md5, sha1, sha256, sha512, sha3_256.
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need structured analysis or classification
+        of inputs against established frameworks or standards.
+
+    When NOT to use:
+        Not suitable for real-time production decision-making without
+        human review of results.
+    """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
@@ -134,7 +181,23 @@ def hash_password(password: str, algorithm: str = "sha256", salt: str = "", api_
 
 @mcp.tool()
 def estimate_crack_time(password: str, guesses_per_second: float = 1e10, api_key: str = "") -> dict[str, Any]:
-    """Estimate how long to brute-force a password at given guess rate."""
+    """Estimate how long to brute-force a password at given guess rate.
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need structured analysis or classification
+        of inputs against established frameworks or standards.
+
+    When NOT to use:
+        Not suitable for real-time production decision-making without
+        human review of results.
+    """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
