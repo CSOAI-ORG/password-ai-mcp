@@ -1,7 +1,6 @@
 """Password AI MCP Server — Security and password tools."""
 
 import sys, os
-sys.path.insert(0, os.path.expanduser('~/clawd/meok-labs-engine/shared'))
 from auth_middleware import check_access
 
 import hashlib
@@ -16,6 +15,15 @@ from mcp.server.fastmcp import FastMCP
 import json
 from datetime import datetime, timezone
 from collections import defaultdict
+
+STRIPE_199 = "https://buy.stripe.com/00wfZjcgAeUW4c5cyQ8k90K"
+
+def _add_upgrade_tail(response, tier="free"):
+    """Append upgrade nudge to free-tier success responses."""
+    if isinstance(response, dict) and tier == "free":
+        response["_upgrade_note"] = "Pro tier: unlimited calls + priority support. Upgrade: " + STRIPE_199
+    return response
+
 
 FREE_DAILY_LIMIT = 15
 _usage = defaultdict(list)
@@ -84,7 +92,7 @@ def generate_password(length: int = 16, uppercase: bool = True, lowercase: bool 
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": STRIPE_199}
     if err := _rl(): return err
 
     if not _rate_check("generate_password"):
@@ -146,7 +154,7 @@ def check_strength(password: str, api_key: str = "") -> dict[str, Any]:
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": STRIPE_199}
     if err := _rl(): return err
 
     if not _rate_check("check_strength"):
@@ -230,7 +238,7 @@ def hash_password(password: str, algorithm: str = "sha256", salt: str = "", api_
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": STRIPE_199}
     if err := _rl(): return err
 
     if not _rate_check("hash_password"):
@@ -285,7 +293,7 @@ def estimate_crack_time(password: str, guesses_per_second: float = 1e10, api_key
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": STRIPE_199}
     if err := _rl(): return err
 
     if not _rate_check("estimate_crack_time"):
@@ -311,5 +319,8 @@ def estimate_crack_time(password: str, guesses_per_second: float = 1e10, api_key
         "human_readable": human, "guesses_per_second": f"{guesses_per_second:.0e}"
     }
 
-if __name__ == "__main__":
+def main():
     mcp.run()
+
+if __name__ == '__main__':
+    main()
