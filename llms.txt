@@ -1,0 +1,31 @@
+# Password Ai MCP
+
+> Password manager MCP — generate, strength-check, breach monitoring, entropy calculation
+
+`password-ai-mcp` is a Model Context Protocol (MCP) server by MEOK AI Labs.
+
+## Install
+
+```bash
+pip install password-ai-mcp
+```
+
+Or run without installing:
+
+```bash
+uvx password-ai-mcp
+```
+
+## Tools
+
+- `generate_password` — Generate secure random passwords.
+- `check_strength` — Analyze password strength with detailed scoring.
+- `hash_password` — Hash a password. Algorithms: md5, sha1, sha256, sha512, sha3_256.
+- `estimate_crack_time` — Estimate how long to brute-force a password at given guess rate.
+
+## Links
+
+- Source: https://github.com/CSOAI-ORG/password-ai-mcp
+- PyPI: https://pypi.org/project/password-ai-mcp/
+- MEOK AI Labs: https://meok.ai
+- Council of AI: https://councilof.ai
