@@ -1,0 +1,25 @@
+{
+  "name": "password-ai-mcp",
+  "title": "Password Ai Mcp",
+  "description": "Password Ai MCP server. Tools: generate password, check strength, hash password. Built by MEOK AI Labs.",
+  "version": "1.0.7",
+  "homepage": "https://meok.ai",
+  "license": "MIT",
+  "transport": {
+    "type": "stdio"
+  },
+  "tools": [
+    {
+      "name": "generate_password"
+    },
+    {
+      "name": "check_strength"
+    },
+    {
+      "name": "hash_password"
+    },
+    {
+      "name": "estimate_crack_time"
+    }
+  ]
+}

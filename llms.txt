@@ -1,31 +1,33 @@
-# Password Ai MCP
-
-> Password manager MCP — generate, strength-check, breach monitoring, entropy calculation
-
-`password-ai-mcp` is a Model Context Protocol (MCP) server by MEOK AI Labs.
+# password-ai-mcp
+# **Password AI MCP Server — Security and password tools.**
 
 ## Install
-
 ```bash
 pip install password-ai-mcp
 ```
 
-Or run without installing:
-
-```bash
-uvx password-ai-mcp
-```
+## Auth & Rate Limits
+- Free tier: 10 calls/day. No API key required.
+- Pro tier (£79/mo): unlimited + signed attestations.
+- Enterprise (£1,499/mo): white-label.
 
 ## Tools
 
-- `generate_password` — Generate secure random passwords.
-- `check_strength` — Analyze password strength with detailed scoring.
-- `hash_password` — Hash a password. Algorithms: md5, sha1, sha256, sha512, sha3_256.
-- `estimate_crack_time` — Estimate how long to brute-force a password at given guess rate.
+### `generate_password`
+Generate secure random passwords.
 
-## Links
+### `check_strength`
+Analyze password strength with detailed scoring.
 
-- Source: https://github.com/CSOAI-ORG/password-ai-mcp
-- PyPI: https://pypi.org/project/password-ai-mcp/
-- MEOK AI Labs: https://meok.ai
-- Council of AI: https://councilof.ai
+### `hash_password`
+Hash a password. Algorithms: md5, sha1, sha256, sha512, sha3_256.
+
+### `estimate_crack_time`
+Estimate how long to brute-force a password at given guess rate.
+
+
+## Maintainer
+MEOK AI Labs · hello@meok.ai · https://meok.ai · MIT licensed
+
+## Pairs with
+Governance moat: pair this tool with any of MEOK's 38 governance MCPs (EU AI Act, DORA, NIS2, CRA, GDPR, ISO 42001, etc.) for full compliance coverage.

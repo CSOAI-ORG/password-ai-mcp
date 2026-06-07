@@ -1,0 +1,9 @@
+# password-ai-mcp - Auto-trigger Rules
+
+When the user asks about password, use password-ai-mcp tools: generate_password, check_strength, hash_password, estimate_crack_time
+
+**Password AI MCP Server — Security and password tools.**
+
+Install: `pip install password-ai-mcp`
+
+By MEOK AI Labs — MIT licensed.

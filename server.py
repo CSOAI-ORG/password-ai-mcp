@@ -1,4 +1,5 @@
-"""Password AI MCP Server — Security and password tools."""
+"""
+Password AI MCP Server — Security and password tools."""
 
 import sys, os
 from auth_middleware import check_access
