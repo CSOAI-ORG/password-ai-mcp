@@ -1,0 +1,22 @@
+{
+  "acpVersion": "0.1",
+  "agent": {
+    "name": "password-ai-mcp",
+    "description": "Password Ai MCP Server by MEOK AI Labs",
+    "version": "1.0.7",
+    "provider": "MEOK AI Labs",
+    "interfaces": [
+      {
+        "type": "mcp",
+        "transport": "stdio",
+        "package": "password-ai-mcp"
+      }
+    ],
+    "capabilities": [
+      "generate_password",
+      "check_strength",
+      "hash_password",
+      "estimate_crack_time"
+    ]
+  }
+}

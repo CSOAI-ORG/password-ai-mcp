@@ -1,0 +1,59 @@
+{
+  "name": "password-ai-mcp",
+  "description": "Password Ai MCP Server by MEOK AI Labs",
+  "url": "https://proofof.ai/scorecard/password-ai-mcp.html",
+  "version": "1.0.7",
+  "protocolVersion": "0.2.0",
+  "provider": {
+    "organization": "MEOK AI Labs",
+    "url": "https://meok.ai"
+  },
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false
+  },
+  "defaultInputModes": [
+    "text"
+  ],
+  "defaultOutputModes": [
+    "text"
+  ],
+  "skills": [
+    {
+      "id": "generate_password",
+      "name": "Generate Password",
+      "description": "generate_password via password-ai-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "check_strength",
+      "name": "Check Strength",
+      "description": "check_strength via password-ai-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "hash_password",
+      "name": "Hash Password",
+      "description": "hash_password via password-ai-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "estimate_crack_time",
+      "name": "Estimate Crack Time",
+      "description": "estimate_crack_time via password-ai-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    }
+  ]
+}
