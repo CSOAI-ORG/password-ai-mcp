@@ -113,3 +113,28 @@ Free tier: 10 calls/day per MCP. Pro tier (£79/mo): unlimited + cryptographical
 
 <!-- BUY-LADDER:END -->
 
+
+
+## Configuration
+
+Add to your `claude_desktop_config.json` (Claude Desktop) or your MCP client config:
+
+```json
+{
+  "mcpServers": {
+    "password-ai-mcp": {
+      "command": "uvx",
+      "args": ["password-ai-mcp"]
+    }
+  }
+}
+```
+
+Or: `pip install password-ai-mcp` then run the `password-ai-mcp` command (stdio transport).
+
+## Examples
+
+Once configured, ask your assistant, for example:
+- "Use `generate_password` to …"
+- "Use `check_strength` to …"
+- "Use `hash_password` to …"
